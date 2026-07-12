@@ -72,6 +72,38 @@ __command: ./paging test01.txt__
 input: test01.txt
 <pre>
 <code>
+0005
+0105
+0205
+0305
+001A
+011A
+021A
+031A
+</code>
+</pre>
 
+output: virtual to physical address translation results on console
+<pre>
+<code>
+VM_SIZE 4096B
+RAM_SIZE        1024B
+PAGE_SIZE       128B
+NUM_VPAGES      32
+NUM_FRAMES      8
+PAGE_POLICY     FIFO
+
+     0  [vaddr] 0x0005  -x->    [paddr] 0x0005
+     1  [vaddr] 0x0105  -x->    [paddr] 0x0085
+     2  [vaddr] 0x0205  -x->    [paddr] 0x0105
+     3  [vaddr] 0x0305  -x->    [paddr] 0x0185
+     4  [vaddr] 0x001a  --->    [paddr] 0x001a
+     5  [vaddr] 0x011a  --->    [paddr] 0x009a
+     6  [vaddr] 0x021a  --->    [paddr] 0x011a
+     7  [vaddr] 0x031a  --->    [paddr] 0x019a
+
+Total accesses : 8
+Page faults    : 4
+Fault rate     : 50.00%
 </code>
 </pre>
